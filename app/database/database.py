@@ -17,7 +17,7 @@ class Database:
         self.connection = None
 
     
-    def conect (self):
+    def connect (self):
         
         try: 
             self.connection = psycopg.connect(
@@ -34,7 +34,7 @@ class Database:
         except Exception as erro:
             print(f"\n\nError: Failed to connect to the Database ({erro})!\n\n")
 
-    def fechar(self):
+    def close(self):
         
         if self.connection:
             self.connection.close()

@@ -1,11 +1,7 @@
-from database.database import Database
-
 class UsuarioRepository:
-    
 
-    def __init__(self):
-        self.db = Database()
-        self.db.connect()
+    def __init__(self, db):
+        self.db = db
 
     def save(self, usuario):
         query = """
@@ -43,7 +39,7 @@ class UsuarioRepository:
             cursor.execute(query, (email,))
             return cursor.fetchone()
         
-    def listUsers (self):
+    def list_users (self):
 
         query = """
             SELECT *
@@ -55,8 +51,6 @@ class UsuarioRepository:
             cursor.execute(query)
             return cursor.fetchall()
         
-    def close (self):
-        self.db.close()
 
 
 

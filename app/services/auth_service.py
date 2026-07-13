@@ -1,11 +1,11 @@
-from models.usuario import Usuario
-from repositories.usuario_repository import UsuarioRepository
-from utils.password import hash_password, verify_password
+from app.models.usuario import Usuario
+from app.repositories.usuario_repository import UsuarioRepository
+from app.utils.password import hash_password, verify_password
 
 class AuthService:
 
-    def __init__(self):
-        self.usuario_repository = UsuarioRepository()
+    def __init__(self, db):
+        self.usuario_repository = UsuarioRepository(db)
 
     def register(self,
                  nome,

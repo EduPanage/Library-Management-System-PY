@@ -38,5 +38,5 @@ class Database:
         
         if self.connection:
             self.connection.close()
-            print("Connection closed\n\n")
+            print("\n\nConnection closed\n\n")
 

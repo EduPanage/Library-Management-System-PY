@@ -1,3 +1,5 @@
+from app.models.usuario import Usuario
+
 class UsuarioRepository:
 
     def __init__(self, db):
@@ -37,7 +39,21 @@ class UsuarioRepository:
 
         with self.db.connection.cursor() as cursor:
             cursor.execute(query, (email,))
-            return cursor.fetchone()
+            result = cursor.fetchone()
+        
+            if result is None:
+                return None
+            
+            return Usuario(
+                id = result[0],
+                nome = result[1],
+                email=result[2],
+                senha_hash=result[3],
+                perfil=result[4],
+                ativo=result[5],
+                criado_em=result[6]
+
+            )
         
     def list_users (self):
 

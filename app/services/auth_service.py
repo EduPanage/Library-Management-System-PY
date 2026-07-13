@@ -28,3 +28,18 @@ class AuthService:
         )
 
         self.usuario_repository.save(usuario) 
+
+    def login(self, email, password):
+
+        usuario = self.usuario_repository.search_by_email(email)
+
+        if usuario is None:
+            raise ValueError("\nError: User not found!")
+        
+        if not usuario.ativo:
+            raise ValueError("\nError: Inactive User!")
+        
+        if not verify_password(password, usuario.senha_hash):
+            raise ValueError("\nError: Invalid password!")
+        
+        return usuario

@@ -7,7 +7,7 @@ def main():
 
     auth_controller = AuthController(db)
 
-    usuario_logado = auth_controller.login()
+    usuario = auth_controller.menu()
 
     db.close()
     

@@ -34,12 +34,12 @@ class AuthService:
         usuario = self.usuario_repository.search_by_email(email)
 
         if usuario is None:
-            raise ValueError("\nError: User not found!")
+            raise ValueError("User not found!")
         
         if not usuario.ativo:
-            raise ValueError("\nError: Inactive User!")
+            raise ValueError("Inactive User!")
         
         if not verify_password(password, usuario.senha_hash):
-            raise ValueError("\nError: Invalid password!")
+            raise ValueError("Invalid password!")
         
         return usuario

@@ -29,7 +29,7 @@ class Database:
             )
             
             print("\n\nSuccess: Connected to the Database!")
-            print(f"DB Name: {self.database} \nPort: {self.port}\n\n")
+            print(f"DB Name: {self.database} \nPort: {self.port}\n")
             
         except Exception as erro:
             print(f"\n\nError: Failed to connect to the Database ({erro})!\n\n")

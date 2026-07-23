@@ -9,9 +9,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
 	UNIQUE(email),
 	
 	CONSTRAINT chk_perfil
-	CHECK (
-	perfil IN ('ADMIN', 'FUNCIONARIO', 'CLIENTE')
-	)
+	CHECK (perfil IN ('ADMIN', 'EMPLOYEE', 'CLIENT'))
 );
 
 CREATE TABLE IF NOT EXISTS autores (

@@ -4,35 +4,7 @@ class AuthController:
 
     def __init__(self, db):
         self.auth_service = AuthService(db)
-
-    def menu(self):
-
-        while True:
-
-            print("\n===== Library Management System =====")
-            print("\n1 - Login")
-            print("2 - Register")
-            print("0 - Exit") 
-
-            option = input("\nOption: ")
-
-            match option:
-
-                case "1":
-                    usuario = self.login()
-
-                    if usuario:
-                        return usuario
-
-                case "2":
-                    usuario = self.register()
-
-                case "0":
-                    print("\nExiting the system!")
-                    return None
-
-                case _:
-                    print("\nInvalid option, choose again!")
+     
 
     def register(self):
         print("\n\n=== User Register ===")
@@ -64,9 +36,6 @@ class AuthController:
 
         try:
             usuario = self.auth_service.login(email, password)
-
-            print(f"\nWelcome, {usuario.nome}")
-            print(f"Perfil: {usuario.perfil}")
 
             return usuario
         

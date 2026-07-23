@@ -1,13 +1,13 @@
 from app.database.database import Database
-from app.controllers.auth_controller import AuthController
+from app.controllers.menu_controller import MenuController
 
 def main():
     db = Database()
     db.connect()
 
-    auth_controller = AuthController(db)
+    menu_controller = MenuController(db)
 
-    usuario = auth_controller.menu()
+    menu_controller.start()
 
     db.close()
     
